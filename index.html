@@ -220,6 +220,9 @@ Le persone vengono indirizzate qui solo in caso di necessità sanitaria.
   alert(text);
 
 }
+  
+let currentLat = null;
+let currentLon = null;
 
 const map = L.map('map', {
   zoomControl: false
@@ -431,6 +434,9 @@ map.on('click', function(e) {
   const userLat = e.latlng.lat;
   const userLon = e.latlng.lng;
 
+  currentLat = userLat;
+  currentLon = userLon;
+
   if(manualMarker) {
     map.removeLayer(manualMarker);
   }
@@ -490,6 +496,9 @@ navigator.geolocation.getCurrentPosition(
     const userLat = pos.coords.latitude;
     const userLon = pos.coords.longitude;
 
+    currentLat = userLat;
+    currentLon = userLon;
+    
     map.setView([userLat, userLon], 13);
 
     L.marker([userLat, userLon])
