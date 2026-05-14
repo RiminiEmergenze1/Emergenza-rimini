@@ -226,7 +226,7 @@ let currentLon = null;
 
 const map = L.map('map', {
   zoomControl: false
-}).setView([44.06, 12.57], 12);
+}).setView([44.06, 12.57], 16);
 
 L.control.zoom({
   position: 'bottomleft'
@@ -446,7 +446,7 @@ map.on('click', function(e) {
     .bindPopup('Posizione manuale')
     .openPopup();
 
-  map.setView([userLat, userLon], 13);
+  map.setView([userLat, userLon], 16);
 
   let nearest = null;
   let minDist = Infinity;
@@ -500,7 +500,7 @@ navigator.geolocation.getCurrentPosition(
     currentLat = userLat;
     currentLon = userLon;
     
-    map.setView([userLat, userLon], 13);
+    map.setView([userLat, userLon], 16);
 
     L.marker([userLat, userLon])
       .addTo(map)
