@@ -147,32 +147,36 @@
 </div>
   </div>
 
-<div style="margin-top:10px; position:relative;">
+<!-- MENU LINK UTILI -->
 
-  <button
-    onclick="toggleLinksMenu()"
-    class="btn"
-    style="width:100%;"
-  >
-    🔗 Link utili
-  </button>
+<div
+  style="
+    position:absolute;
+    bottom:20px;
+    left:50%;
+    transform:translateX(-50%);
+    z-index:1000;
+  "
+>
 
   <div
     id="linksMenu"
     style="
       display:none;
-      margin-top:8px;
-      background:rgba(255,255,255,0.18);
+      margin-bottom:10px;
+      background:rgba(0,0,0,0.75);
       backdrop-filter: blur(6px);
       border-radius:12px;
       padding:8px;
+      min-width:180px;
+      text-align:center;
     "
   >
 
     <a
       href="https://www.comune.rimini.it/amministrazione/documenti-e-dati/documento-tecnico-di-supporto/protezione-civile-cosa-fare-caso-di"
       target="_blank"
-      style="display:block; padding:8px; color:inherit; text-decoration:none;"
+      style="display:block;padding:10px;color:white;text-decoration:none;"
     >
       📘 Cosa fare in caso di...
     </a>
@@ -180,7 +184,7 @@
     <a
       href="https://www.comune.rimini.it/servizi/giustizia-e-sicurezza-pubblica/iscriversi-alla-app-del-sistema-di-allerta-comunale-alert"
       target="_blank"
-      style="display:block; padding:8px; color:inherit; text-decoration:none;"
+      style="display:block;padding:10px;color:white;text-decoration:none;"
     >
       🚨 Alert System
     </a>
@@ -188,20 +192,30 @@
     <a
       href="https://www.comune.rimini.it/amministrazione/documenti-e-dati/atto-normativo/piano-comunale-protezione-civile"
       target="_blank"
-      style="display:block; padding:8px; color:inherit; text-decoration:none;"
+      style="display:block;padding:10px;color:white;text-decoration:none;"
     >
       🗺️ Piano comunale
     </a>
 
   </div>
 
-</div>
+  <button
+    onclick="toggleLinksMenu()"
+    style="
+      border:none;
+      background:rgba(0,0,0,0.75);
+      color:white;
+      padding:8px 14px;
+      border-radius:20px;
+      font-size:13px;
+      cursor:pointer;
+    "
+  >
+    Link utili
+  </button>
 
 </div>
 
-<a class="sos-button" href="tel:112">SOS</a>
-  
-</div>
 <a class="sos-button" href="tel:112">SOS</a>
 
 <div id="map"></div>
