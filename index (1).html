@@ -30,9 +30,8 @@
       top: 10px;
       left: 10px;
       z-index: 1000;
-      background: rgba(20,20,20,0.18);
-      backdrop-filter: blur(6px);
-      color: #111;
+      background: rgba(20,20,20,0.92);
+      color: white;
       padding: 12px;
       border-radius: 14px;
       box-shadow: 0 2px 14px rgba(0,0,0,0.4);
@@ -50,7 +49,7 @@
       padding: 8px 12px;
       border-radius: 10px;
       background: #c62828;
-      color: #fff;
+      color: white;
       text-decoration: none;
       font-size: 14px;
     }
@@ -483,7 +482,7 @@ map.on('click', function(e) {
 
     <a class="btn"
       target="_blank"
-      href="https://www.google.com/maps/dir/?api=1&origin=${currentLat},${currentLon}&destination=${nearest.lat},${nearest.lon}&travelmode=walking">
+      href="https://www.google.com/maps/dir/?api=1&origin=${currentLat},${currentLon}&destination=${nearest.lat},${nearest.lon}">
       
       Naviga
     </a>
@@ -541,7 +540,7 @@ navigator.geolocation.getCurrentPosition(
 
       <a class="btn"
         target="_blank"
-       href="https://www.google.com/maps/dir/?api=1&origin=${currentLat},${currentLon}&destination=${nearest.lat},${nearest.lon}&travelmode=walking">
+        href="https://www.google.com/maps/dir/?api=1&origin=${currentLat},${currentLon}&destination=${nearest.lat},${nearest.lon}">
         
         Naviga
       </a>
