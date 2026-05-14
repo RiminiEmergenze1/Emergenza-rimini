@@ -115,7 +115,11 @@
   <div id="nearest">
     Ricerca posizione...
   </div>
-
+  
+<button class="btn" onclick="enableManualPosition()">
+  Seleziona posizione manualmente
+</button>
+  
 <!-- LEGENDA -->
 
 <div class="legend">
@@ -401,7 +405,83 @@ function distance(lat1, lon1, lat2, lon2) {
     Math.sqrt(1-a)
   );
 }
+// POSIZIONE MANUALE
 
+let manualSelectionEnabled = false;
+let manualMarker = null;
+
+function enableManualPosition() {
+
+  manualSelectionEnabled = true;
+
+  alert(
+    'Tocca un punto sulla mappa per impostare manualmente la tua posizione.'
+  );
+
+}
+
+map.on('click', function(e) {
+
+  if(!manualSelectionEnabled) {
+    return;
+  }
+
+  manualSelectionEnabled = false;
+
+  const userLat = e.latlng.lat;
+  const userLon = e.latlng.lng;
+
+  if(manualMarker) {
+    map.removeLayer(manualMarker);
+  }
+
+  manualMarker = L.marker([userLat, userLon])
+    .addTo(map)
+    .bindPopup('Posizione manuale')
+    .openPopup();
+
+  map.setView([userLat, userLon], 13);
+
+  let nearest = null;
+  let minDist = Infinity;
+
+  points.forEach(point => {
+
+    if(point.type !== 'attesa') {
+      return;
+    }
+
+    const d = distance(
+      userLat,
+      userLon,
+      point.lat,
+      point.lon
+    );
+
+    if(d < minDist) {
+
+      minDist = d;
+      nearest = point;
+
+    }
+
+  });
+
+  document.getElementById('nearest').innerHTML = `
+    <b>Punto più vicino:</b><br>
+    ${nearest.name}<br>
+    ${minDist.toFixed(2)} km
+
+    <br><br>
+
+    <a class="btn"
+      target="_blank"
+      href="https://www.google.com/maps/dir/?api=1&destination=${nearest.lat},${nearest.lon}">
+      Naviga
+    </a>
+  `;
+
+});
 // GEOLOCALIZZAZIONE
 navigator.geolocation.getCurrentPosition(
 
